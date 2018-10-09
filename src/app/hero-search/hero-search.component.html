@@ -2,6 +2,8 @@
   <h4>Hero Search</h4>
   <input type="text" #searchBox id="search-box" (keyup)="search(searchBox.value)">
   <ul>
+    <!-- AsyncPipe 会自动订阅到 Observable，这样你就不用再在组件类中订阅了。 -->
+    <!-- 当然你也可以不用AsyncPipe而在组件中订阅，类似项目中其他组件的列表渲染 -->
     <li *ngFor="let hero of heroes$ | async">
       <a routerLink="/detail/{{hero.id}}">
         {{hero.name}}
